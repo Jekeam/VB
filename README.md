@@ -1,3 +1,29 @@
+<h2>How to Batch Send Multiple Draft Emails with Outlook VBA</h2>
+```
+Sub SendAllDraftEmails()
+    Dim objDrafts As Outlook.Items
+    Dim objDraft As Object
+    Dim strPrompt As String
+    Dim nResponse As Integer
+    Dim i As Long
+ 
+    Set objDrafts = Outlook.Application.Session.GetDefaultFolder(olFolderDrafts).Items
+ 
+    If objDrafts.Count > o Then
+       strPrompt = "Are you sure to send out all the drafts?"
+       nResponse = MsgBox(strPrompt, vbQuestion + vbYesNo, "Confirm Sending")
+ 
+       If nResponse = vbYes Then
+          For i = objDrafts.Count To 1 Step -1
+              objDrafts.Item(i).Send
+          Next
+       End If
+    Else
+       MsgBox ("No Drafts!")
+    End If
+End Sub
+```
+
 1. At first, launch Outlook application and press “Alt + F11” shortcuts. 
 2. Then you will open the VBA editor window, in which you should open a new module.
 3. Subsequently, copy and paste the following VBA codes into it. 
