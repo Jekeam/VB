@@ -1,4 +1,4 @@
-<h2>How to Batch Send Multiple Draft Emails with Outlook VBA</h2>
+## How to Batch Send Multiple Draft Emails with Outlook VBA
 ```
 Sub SendAllDraftEmails()
     Dim objDrafts As Outlook.Items
